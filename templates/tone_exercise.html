@@ -1,0 +1,55 @@
+{% extends "music_layout.html" %}
+
+{% block title %}
+    Tone Exercise
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block main %}
+
+<main>
+  <div class="container px-4 text-center">
+    <h1>Get Ready!</h1>
+    <h1 id="countdown">5</h1>
+    <progress value="0" max="5" id="progressBar" style="background-color: green; transition: width 5s linear;"></progress>
+
+
+    <div class="align-items-center">
+      <form action="/check_answer" method="post">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+          <input type="radio" class="btn-check" name="user_answer" id="btnradio1" autocomplete="off" value="lower">
+          <label class="btn btn-outline-primary" for="btnradio1">Lower</label>
+
+          <input type="radio" class="btn-check" name="user_answer" id="btnradio2" autocomplete="off" value="same">
+          <label class="btn btn-outline-primary" for="btnradio2">Same</label>
+
+          <input type="radio" class="btn-check" name="user_answer" id="btnradio3" autocomplete="off" value="higher">
+          <label class="btn btn-outline-primary" for="btnradio3">Higher</label>
+        </div>
+          <hr class="rounded-pill border border-5 border-secondary" style="width: 100%;height:5px;">
+            <button type="submit" class="btn btn-primary my-1">Submit</button>
+      </form>
+    </div>
+  </div>
+
+</main>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'correct_answer' %}
+                    <div id="flashMessage" class="{{ category }}"></div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+<script src="{{ url_for('static', filename='exercise_tone.js') }}"></script>
+<script>
+    var notes = ["{{ first_note }}","{{ second_note }}"];
+    var timeInterval = {{ time_interval }}
+</script>
+
+{% endblock %}

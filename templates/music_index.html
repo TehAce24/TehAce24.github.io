@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <!-- http://getbootstrap.com/docs/5.1/ -->
+        <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
+        <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
+        <script src="https://kit.fontawesome.com/1f683e988c.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.21/Tone.js"></script>
+
+        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+
+        <style>
+            .zoom {
+                  transition: transform .2s;
+                  padding: 100px;
+                  margin: 0 auto;
+            }
+            .zoom:hover {
+                  -ms-transform: scale(1.5); /* IE 9 */
+                  -webkit-transform: scale(1.5); /* Safari 3-8 */
+                  transform: scale(1.15);
+                  z-index: 5;
+            }
+
+            .row {
+                  margin-right: 0;
+            }
+        </style>
+        <title>MusicPoly</title>
+
+    </head>
+    <body>
+        <div class="row align-items-stretch g-3 py-1" style="background-color: #778899;">
+              <a class="col zoom" style="color: #4682B4;" href="/guitar">
+                <div class="card text-bg-dark">
+                  <img src="/static/guitar.webp" class="card-img" alt="Guitar Image">
+                  <div class="card-img-overlay">
+                    <h1 class="card-title">Guitar</h1>
+                      <li class="me-auto">
+                        <img src="static/guitar-icon.png" alt="Bootstrap" width="32" height="32" class="rounded-circle text-bg-light border border-white" style="background-color: #778899">
+                      </li>
+                  </div>
+                </div>
+              </a>
+
+              <a class="col zoom" style="color: #FFDAB9;" href="/piano">
+                <div class="card text-bg-dark">
+                  <img src="/static/piano.webp" class="card-img" alt="Piano Image">
+                  <div class="card-img-overlay">
+                    <h1 class="card-title">Piano</h1>
+                      <li class="me-auto">
+                        <img src="static/piano-icon.png" alt="Bootstrap" width="32" height="32" class="rounded-circle text-bg-light border border-white" style="background-color: #FFDAB9">
+                      </li>
+                  </div>
+                </div>
+              </a>
+
+            <a class="col zoom" style="color: #00FA9A;" href="/tone_index">
+                <div class="card text-bg-dark">
+                  <img src="/static/headphones.webp" class="card-img" alt="Headphone Image">
+                  <div class="card-img-overlay">
+                    <h1 class="card-title">Tone Exercise</h1>
+                  </div>
+                </div>
+              </a>
+            <footer class="footer cols-1 mt-auto py-3">
+            <div class="container text-center">
+                <span class="text">©MusePoly by Thon</span>
+            </div>
+        </footer>
+        </div>
+    </body>
+
+</html>

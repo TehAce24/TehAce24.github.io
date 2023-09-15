@@ -1,0 +1,47 @@
+{% extends "music_layout.html" %}
+
+{% block title %}
+    Piano
+{% endblock %}
+
+{% block nav %}
+<img src="static/piano-icon.png" alt="Piano Icon" style="width:72px;height:72px;">
+{% endblock %}
+
+{% block main %}
+<main class="container my-5">
+    <div class="dropdown">Change Tone
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span id="pianoDropdown">Classic</span>
+      </button>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="classic()">Classic</a></li>
+        <li><a class="dropdown-item" onclick="polys()">Poly Synth</a></li>
+        <li><a class="dropdown-item" onclick="monos()">Mono Synth</a></li>
+        <li><a class="dropdown-item" onclick="fms()">FM Synth</a></li>
+          <li><a class="dropdown-item" onclick="synths()">Synth</a></li>
+      </ul>
+    </div>
+    <div class="piano-frame row p-4 pb-0 pe-lg-5 pt-lg-3 align-items-center rounded-3 border shadow-lg">
+        <table class="piano-table table-primary">
+            <tr>
+                <td><button type="button" style="color=orange;" class="piano-key white-key btn btn-outline-primary" data-note="E4">A</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="F4">S</button></td>
+                <td><button type="button" class="piano-key black-key btn btn-outline-primary" data-note="F#4">E</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="G4">D</button></td>
+                <td><button type="button" class="piano-key black-key btn btn-outline-primary" data-note="G#4">R</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="A4">F</button></td>
+                <td><button type="button" class="piano-key black-key btn btn-outline-primary" data-note="A#4">T</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="B4">G</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="C5">H</button></td>
+                <td><button type="button" class="piano-key black-key btn btn-outline-primary" data-note="C#5">U</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="D5">J</button></td>
+                <td><button type="button" class="piano-key black-key btn btn-outline-primary" data-note="D#5">I</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="E5">K</button></td>
+                <td><button type="button" class="piano-key white-key btn btn-outline-primary" data-note="F5">L</button></td>
+            </tr>
+        </table>
+    </div>
+    </main>
+    <script src="{{ url_for('static', filename='piano.js') }}"></script>
+{% endblock %}

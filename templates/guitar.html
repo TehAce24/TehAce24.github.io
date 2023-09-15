@@ -1,0 +1,152 @@
+{% extends "music_layout.html" %}
+
+{% block title %}
+    Guitar
+{% endblock %}
+
+{% block nav %}
+<img src="static/guitar-icon.png" alt="Guitar Icon" style="width:72px;height:72px;">
+{% endblock %}
+{% block main %}
+<div class="container my-1">
+    <div class="dropdown">Change Tone
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <span id="guitarDropdown">Acoustic</span>
+      </button>
+      <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="acoustic()">Acoustic</a></li>
+          <li><a class="dropdown-item" onclick="electric()">Electric</a></li>
+      </ul>
+    </div>
+    <div class="row p-4 pb-0 pe-lg-5 pt-lg-3 align-items-center rounded-3 border shadow-lg" id="guitar-frame">
+        <img src="static/fretboard.png" alt="Fretboard" class="fretboard-image">
+            <div class="guitar-strings" data-note="lowE-String">
+                <button type="button" style="top: 75%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="F1">F1</button>
+                <button type="button" style="top: 75%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="F#1">F#1</button>
+                <button type="button" style="top: 75%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="G1">G1</button>
+                <button type="button" style="top: 75%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="G#1">G#1</button>
+                <button type="button" style="top: 75%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="A1">A1</button>
+                <button type="button" style="top: 75%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="A#1">A#1</button>
+                <button type="button" style="top: 75%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="B1">B1</button>
+                <button type="button" style="top: 75%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="C2">C2</button>
+                <button type="button" style="top: 75%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="C#2">C#2</button>
+                <button type="button" style="top: 75%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="D2">D2</button>
+                <button type="button" style="top: 75%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="D#2">D#2</button>
+            </div>
+            <div class="guitar-strings" data-note="A-String">
+                <button type="button" style="top: 65%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="A#1">A#</button>
+                <button type="button" style="top: 65%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="B1">B1</button>
+                <button type="button" style="top: 65%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="C2">C2</button>
+                <button type="button" style="top: 65%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="C#2">C#2</button>
+                <button type="button" style="top: 65%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="D2">D2</button>
+                <button type="button" style="top: 65%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="D#2">D#2</button>
+                <button type="button" style="top: 65%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="E2">E2</button>
+                <button type="button" style="top: 65%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="F2">F2</button>
+                <button type="button" style="top: 65%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="F#2">F#2</button>
+                <button type="button" style="top: 65%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="G2">G2</button>
+                <button type="button" style="top: 65%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="A2">A2</button>
+            </div>
+            <div class="guitar-strings" data-note="D-String">
+                <button type="button" style="top: 57%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="D#2">D#2</button>
+                <button type="button" style="top: 57%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="E2">E2</button>
+                <button type="button" style="top: 57%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="F2">F2</button>
+                <button type="button" style="top: 57%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="F#2">F#2</button>
+                <button type="button" style="top: 57%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="G2">G2</button>
+                <button type="button" style="top: 57%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="G#2">G#2</button>
+                <button type="button" style="top: 57%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="A2">A2</button>
+                <button type="button" style="top: 57%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="A#2">A#2</button>
+                <button type="button" style="top: 57%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="B2">B2</button>
+                <button type="button" style="top: 57%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="C3">C3</button>
+                <button type="button" style="top: 57%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="C#3">C#3</button>
+            </div>
+            <div class="guitar-strings" data-note="G-String">
+                <button type="button" style="top: 48%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="G#2">G#2</button>
+                <button type="button" style="top: 48%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="A2">A2</button>
+                <button type="button" style="top: 48%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="A#2">A#2</button>
+                <button type="button" style="top: 48%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="B2">B2</button>
+                <button type="button" style="top: 48%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="C3">C3</button>
+                <button type="button" style="top: 48%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="C#3">C#3</button>
+                <button type="button" style="top: 48%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="D3">D3</button>
+                <button type="button" style="top: 48%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="D#3">D#3</button>
+                <button type="button" style="top: 48%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="E3">E3</button>
+                <button type="button" style="top: 48%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="F3">F3</button>
+                <button type="button" style="top: 48%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="F#3">F#3</button>
+            </div>
+            <div class="guitar-strings" data-note="B-String">
+                <button type="button" style="top: 39%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="C3">C3</button>
+                <button type="button" style="top: 39%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="C#3">C#3</button>
+                <button type="button" style="top: 39%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="D3">D3</button>
+                <button type="button" style="top: 39%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="D#3">D#3</button>
+                <button type="button" style="top: 39%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="E3">E3</button>
+                <button type="button" style="top: 39%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="F3">F3</button>
+                <button type="button" style="top: 39%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="F#3">F#3</button>
+                <button type="button" style="top: 39%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="G3">G3</button>
+                <button type="button" style="top: 39%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="G#3">G#3</button>
+                <button type="button" style="top: 39%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="A3">A3</button>
+                <button type="button" style="top: 39%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="A#3">A#3</button>
+            </div>
+            <div class="guitar-strings" data-note="highE-String">
+                <button type="button" style="top: 31%; left: 2%;" class="guitar-note btn btn-outline-primary" data-note="F3">F3</button>
+                <button type="button" style="top: 31%; left: 11%;" class="guitar-note btn btn-outline-primary" data-note="F#3">F#3</button>
+                <button type="button" style="top: 31%; left: 19%;" class="guitar-note btn btn-outline-primary" data-note="G3">G3</button>
+                <button type="button" style="top: 31%; left: 28%;" class="guitar-note btn btn-outline-primary" data-note="G#3">G#3</button>
+                <button type="button" style="top: 31%; left: 36%;" class="guitar-note btn btn-outline-primary" data-note="A3">A3</button>
+                <button type="button" style="top: 31%; left: 44%;" class="guitar-note btn btn-outline-primary" data-note="A#3">A#3</button>
+                <button type="button" style="top: 31%; left: 53%;" class="guitar-note btn btn-outline-primary" data-note="B3">B3</button>
+                <button type="button" style="top: 31%; left: 61%;" class="guitar-note btn btn-outline-primary" data-note="C4">C4</button>
+                <button type="button" style="top: 31%; left: 70%;" class="guitar-note btn btn-outline-primary" data-note="C#4">C#4</button>
+                <button type="button" style="top: 31%; left: 78%;" class="guitar-note btn btn-outline-primary" data-note="D4">D4</button>
+                <button type="button" style="top: 31%; left: 87%;" class="guitar-note btn btn-outline-primary" data-note="D#4">D#4</button>
+            </div>
+    </div>
+</div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-secondary" id="chordMode" data-bs-toggle="button" type="button">Enter Chord Mode</button>
+        <button type="button" id="playChords" class="col-2 mx-auto fa-solid fa-play"></button>
+    </div>
+<div class="effects container-sm text-center border shadow-lg">
+    <div class="row">
+        <div class="volume-box col">
+            <div>
+                <i class="fa-solid fa-volume-high fa-lg" id="volume"></i><span><label for="volume-range" class="form-label"> Volume</label></span>
+                <input type="range" value="-10" min="-25" max="0" class="form-range" id="volume-range">
+            </div>
+        </div>
+        <div class="chorus-box col">
+            <button type="button" class="btn" id="chorus-btn" data-bs-toggle="button">Enable</button>
+            <div>
+                <label for="chorus-frequency" class="form-label">Chorus Frequency </label>
+                <input type="range" value="4" min="0" max="10" step="0.5" class="form-range" id="chorus-frequency">
+            </div>
+            <div>
+                <label for="chorus-delay" class="form-label">Chorus Delay </label>
+                <input type="range" value="2.5" min="0" max="10" step="0.5" class="form-range" id="chorus-delay">
+            </div>
+            <div>
+                <label for="chorus-depth" class="form-label">Chorus Depth </label>
+                <input type="range" value="0.5" min="0" max="10" step="0.5" class="form-range" id="chorus-depth">
+            </div>
+        </div>
+        <div class="tremolo-box col">
+            <button type="button" class="btn" id="tremolo-btn" data-bs-toggle="button">Enable</button>
+            <div>
+                <label for="tremolo-frequency" class="form-label">Tremolo Frequency </label>
+                <input type="range" value="9" min="0" max="10" step="0.5" class="form-range" id="tremolo-frequency">
+            </div>
+            <div>
+                <label for="tremolo-depth" class="form-label">Tremolo Depth </label>
+                <input type="range" value="0.75" min="0" max="10" step="0.5" class="form-range" id="tremolo-depth">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='guitar.js') }}"></script>
+<script>const lowE = "{{ url_for('static', filename='audio/lowE.mp3') }}";</script>
+<script>const A = "{{ url_for('static', filename='audio/A.mp3') }}";</script>
+<script>const D = "{{ url_for('static', filename='audio/D.mp3') }}";</script>
+<script>const G = "{{ url_for('static', filename='audio/G.mp3') }}";</script>
+<script>const B = "{{ url_for('static', filename='audio/B.mp3') }}";</script>
+<script>const highE = "{{ url_for('static', filename='audio/highE.mp3') }}";</script>
+
+{% endblock %}

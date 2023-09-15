@@ -1,0 +1,50 @@
+{% extends "music_layout.html" %}
+
+{% block title %}
+    Ear Training
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block main %}
+<main>
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="/static/sheet.jpg" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Practice how to differentiate notes.</h1>
+        <p class="lead">After starting the exercise you will hear multiple notes.
+            Try and guess if the notes are ascending, descending or the same. The higher the difficulty the longer the notes will play apart</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+
+          <form class="form-inline" action="/tone_index" method="post">
+            <label class="my-1 mr-2" for="difficulty">Difficulty:</label>
+              <select class="custom-select my-1 mr-sm-2" id="difficulty" name="difficulty">
+                  <option selected>Choose</option>
+                <option value="easy">Easy</option>
+                <option value="normal">Normal</option>
+                <option value="hard">Hard</option>
+              </select>
+            <button type="submit" class="btn btn-primary my-1">Start</button>
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'select_difficulty' %}
+                    <div id="flashMessage" class="{{ category }}"></div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+{% endblock %}

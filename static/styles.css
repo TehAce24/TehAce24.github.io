@@ -1,0 +1,239 @@
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+nav {
+    background-color: #131921;
+    background-image: linear-gradient(#131921 50%);
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+th, td {
+    border-color: #96D4D4;
+  }
+
+.container {
+    position: relative;
+    max-width: 70%;
+}
+
+.navbar-collapse {
+    font-size: large;
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+.piano-key {
+  background-color: white;
+  border: 2px solid #000;
+  /* Add more styling as needed */
+  text-align: center;
+  vertical-align: center;
+  line-height: 120px;
+}
+
+.dropdown-toggle {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.piano-table {
+  border-collapse: collapse;
+  width: 70%;
+  height: 20rem;
+  margin-left: 200px;
+  line-height: 10px;
+}
+
+.piano-table td {
+  padding: 0;
+}
+
+.white-key {
+  height: 80%;
+  width: 100%;
+  background-color: white;
+  border: 2px solid #000;
+  /* Adjust margin to create space between keys */
+  margin-right: 15px;
+  text-align: center;
+  color: black;
+}
+
+.black-key {
+  width: 4%;
+  height: 40%;
+  background-color: gray;
+  border: 1px solid #000;
+  /* Adjust margin to position the black keys */
+  margin-left: -28px;
+  margin-top: -130px;
+  line-height: 10px;
+  text-align: center;
+  z-index: 5;
+  position: absolute;
+  color: white;
+}
+
+.guitar-image {
+  width: auto;
+  height: auto; /* Maintain the aspect ratio of the image */
+  display: block;
+}
+
+.guitar-note {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background-color: transparent;
+  color: white;
+  border: 0px solid #000;
+  border-radius: 50%; /* Make the buttons round */
+  text-align: center;
+  line-height: 5px; /* Vertically center text */
+  cursor: pointer; /* Change cursor on hover */
+  /* Adjust top and left properties to position the buttons */
+}
+
+.piano-frame {
+    background-image: linear-gradient( 135deg, #A9A9A9 10%, #778899 100%);
+}
+
+.guitar-frame {
+    background-image: linear-gradient( 135deg, #A9A9A9 10%, #778899 100%);
+    border: 15px solid;
+}
+
+.dropdown-menu {
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient( 90deg, #FFF5EE 20%, #F5F5F5 100%);
+    border: 1px solid;
+}
+
+.dropdown {
+   width: 100%;
+   text-align: center;
+
+}
+
+.input.form-range::-webkit-slider-thumb {
+  background-color: gray;
+}
+
+.volume-box {
+    display: inline-block;
+    border: 2px solid #A9A9A9;
+}
+
+.chorus-box {
+    display: inline-block;
+    border: 2px solid #A9A9A9;
+}
+
+.effects {
+    background-image: linear-gradient( 90deg, #FFF5EE 20%, #F5F5F5 100%);
+}
+
+.bouncing {
+    animation: bounce 0.5s ease infinite;
+}
+
+@keyframes rotate {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-15px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+.beat {
+    animation: beat
+}
+
+.text-bg-dark {
+    color: #fff!important;
+    background-color: RGBA(var(--bs-dark-rgb),var(--bs-bg-opacity,1))!important;
+}
+
+.ps-md-3 {
+    padding-left: 5rem!important;
+    padding-right: 5rem!important;
+}
+
+.my-md-3 {
+    margin-top: 1rem!important;
+    margin-bottom: 1rem!important;
+}
+
+.d-md-flex {
+    display: flex!important;
+}
+.w-100 {
+    width: 100%!important;
+    height: 100%;
+}
+
+.index-links {
+    text-decoration: none;
+}
+
+.mx-auto {
+    margin-right: auto!important;
+    margin-left: auto!important;
+}
+
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.rounded-pill {
+    background-image: linear-gradient( 135deg, #000000 10%, #2F4F4F 100%);
+}
+
+.custom-progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    position: relative;
+}
+
+.progress-fill {
+    width: 1%;
+    left: 50%;
+    height: 100%;
+    background-color: red;
+    position: absolute;
+    transition: left 0.3s ease-in-out;
+}

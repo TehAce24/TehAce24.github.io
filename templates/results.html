@@ -1,0 +1,27 @@
+{% extends "music_layout.html" %}
+
+{% block title %}
+    Exercise Results
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block main %}
+
+<main>
+    <div class="container px-4 text-center">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">You scored {{ total_score }}/{{ max_rounds }}</h1>
+        {% if total_score == max_rounds %}
+            <p class="lead"> Congrats you're not tone deaf!</p>
+        {% elif total_score / max_rounds < 0.25 %}
+            <p class="lead"> Get your ears checked bro!</p>
+        {% endif %}
+    </div>
+</main>
+<script>
+window.setTimeout(function() {
+   $(".alert").remove()
+});
+</script>
+{% endblock %}
