@@ -239,6 +239,8 @@ const sampler = new Tone.Sampler({
     },
     release: 1,
     onload: () => {
+        // Connects the sampler to the audio FX if either are turned on
+        // they are like attachments that add onto the sampler tone.
         if (chorusEnable === true) {
             sampler.connect(chorus);
         }
@@ -250,6 +252,8 @@ const sampler = new Tone.Sampler({
         sampler.connect(reverb);
         sampler.connect(delay);
         */
+
+        // Finally the app plays the desired note
         sampler.triggerAttackRelease(note, '4n');
     }
 }).toDestination()

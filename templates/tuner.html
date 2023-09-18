@@ -1,6 +1,5 @@
 {% extends "music_layout.html" %}
 
-
 {% block title %}
     Tuner
 {% endblock %}
@@ -10,32 +9,14 @@
 {% endblock %}
 
 {% block main %}
-<main>
+<body>
     <div class="container px-4 py-5 text-center">
         <div class="align-items-center py-5">
             <div class="card">
-              <div class="card-body">
-                This is a tool to tune guitar strings. You can also sing to find the pitch too I guess.
+              <div class="card-body ">
+                This is a tool to tune guitar strings. You can also sing to find the pitch too I guess. If the pitch is not changing
+                  you may have to refresh the browser or click reset mic.
               </div>
-            </div>
-            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-              <input type="radio" class="btn-check" name="note" data-string="82" id="lowE" autocomplete="off">
-              <label class="btn btn-outline-primary" for="lowE">E</label>
-
-              <input type="radio" class="btn-check" name="note" data-string="110" id="A" autocomplete="off">
-              <label class="btn btn-outline-primary" for="A">A</label>
-
-              <input type="radio" class="btn-check" name="note" data-string="147" id="D" autocomplete="off">
-              <label class="btn btn-outline-primary" for="D">D</label>
-
-                <input type="radio" class="btn-check" name="note" data-string="196" id="G" autocomplete="off">
-              <label class="btn btn-outline-primary" for="G">G</label>
-
-              <input type="radio" class="btn-check" name="note" data-string="246" id="B" autocomplete="off">
-              <label class="btn btn-outline-primary" for="B">B</label>
-
-              <input type="radio" class="btn-check" name="note" data-string="330" id="highE" autocomplete="off">
-              <label class="btn btn-outline-primary" for="highE">e</label>
             </div>
         </div>
 
@@ -43,27 +24,49 @@
               <option selected>Devices</option>
         </select>
 
-        <p id="recording"></p>
-
         <div>
-            <span id="pitch-label" class="label">Pitch: </span>
-            <span id="pitch" aria-labelledby="pitch-label">0 Hz</span>
+            <span id="pitch-label" class="label fs-4">Pitch: </span>
+            <span id="pitch" class="fs-4" aria-labelledby="pitch-label">0 Hz</span>
         </div>
+        <p class="fs-1 fw-bold" id="currentNote"></p>
         <p id="adjustString"></p>
         <div class="custom-progress-bar">
-            <div class="progress-fill"></div>
+            <div class="progress-stripes"></div>
+                <div class="progress-fill"></div>
         </div>
 
-        <div>
-            <span id="targetPitch-Label" class="label">Target: </span>
-            <span id="targetPitch" aria-labelledby="target-label">0 Hz</span>
+        <div class="bg-body-secondary border">
+            <span id="targetPitch-Label" class="label fs-4">Target: </span>
+            <span id="targetPitch" class="fs-4" aria-labelledby="target-label">0 Hz</span>
         </div>
 
-        <div>
-            <button id="resetMic" class="btn btn-outline-primary" type="button">Reset Mic</button>
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="tuning" data-string="standard" id="standard" autocomplete="off">
+              <label class="btn btn-outline-primary" tabindex="0" data-bs-toggle="popover" data-bs-title="Tuning" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="E-A-D-G-B-e" for="standard">Standard</label>
+
+              <input type="radio" class="btn-check" name="tuning" data-string="dropD" id="dropD" autocomplete="off">
+              <label class="btn btn-outline-primary" tabindex="0" data-bs-toggle="popover" data-bs-title="Tuning" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="D-A-D-G-B-e" for="dropD">Drop D</label>
+
+              <input type="radio" class="btn-check" name="tuning" data-string="eFlat" id="eFlat" autocomplete="off">
+              <label class="btn btn-outline-primary" tabindex="0" data-bs-toggle="popover" data-bs-title="Tuning" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="Eb-Ab-Db-Gb-Bb-eb" for="eFlat">Eb</label>
+
+                <div class="dropdown col px-5">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <span id="dropDownText">Custom Tuning</span>
+                  </button>
+                  <ul class="dropdown-menu" id="customDropDown">
+
+                  </ul>
+                </div>
+
+            </div>
+
+        <div class="col px-5 py-2">
+            <button type="button" class="btn btn-outline-primary" id="startTuner">Start</button>
+            <div class="col px-5 py-2">
+                <button id="resetMic" class="btn btn-outline-primary" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="bottom" data-bs-content="Click this if mic is not being detected" type="button">Reset Mic</button>
+            </div>
         </div>
-
-
 
         <div class="toast" id="tipToast" role="alert" aria-live="assertive" aria-atomic="true" style="z-index:10; position:absolute; left:50%;">
           <div class="toast-header">
@@ -71,14 +74,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
           </div>
           <div class="toast-body">
-            <p class="fw-normal">If the pitch deviates excessively from the target pitch, try putting the Mic closer. Reducing any background noises may also help.</p>
+            <p class="fw-normal">If the pitch is too high or too low, try putting the Mic closer. Reducing any background noises may also help.</p>
           </div>
         </div>
 
     </div>
-</main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js"></script>
 <script type="module" src="{{ url_for('static', filename='pitch.js') }}"></script>
 
-
 {% endblock %}
+

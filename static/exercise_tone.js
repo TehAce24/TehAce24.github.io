@@ -1,7 +1,8 @@
-const volume = -7;
+const volume = -5;
 var timer = 5;
 const maxNotes = 2;
 const now = Tone.now()
+Tone.start()
 const poly = new Tone.PolySynth().toDestination();
 const synth = new Tone.Synth().toDestination();
 const mono = new Tone.MonoSynth({
@@ -9,6 +10,7 @@ const mono = new Tone.MonoSynth({
         attack: 0.1
     }
 }).toDestination();
+Tone.Master.volume.value = volume;
 
 window.setTimeout(function() {
     $(".alert").fadeTo(500, 0)
@@ -38,5 +40,4 @@ function getNotes() {
 
 function playNotes(note) {
     synth.triggerAttackRelease(note, "2n")
-    // synth.triggerAttackRelease("F1", "2n")
 };

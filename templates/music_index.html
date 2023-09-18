@@ -7,11 +7,7 @@
         <!-- http://getbootstrap.com/docs/5.1/ -->
         <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">
         <script crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"></script>
-        <script src="https://kit.fontawesome.com/1f683e988c.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.21/Tone.js"></script>
 
         <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
 
@@ -35,10 +31,11 @@
         <title>MusicPoly</title>
 
     </head>
-    <body>
-        <div class="row align-items-stretch g-3 py-1" style="background-color: #778899;">
+    <body style="background-color: #778899;">
+        <div class="row row-cols-1 row-cols-lg-4 align-items-stretch mt-5 g-1 py-5">
+
               <a class="col zoom" style="color: #4682B4;" href="/guitar">
-                <div class="card text-bg-dark">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                   <img src="/static/guitar.webp" class="card-img" alt="Guitar Image">
                   <div class="card-img-overlay">
                     <h1 class="card-title">Guitar</h1>
@@ -50,7 +47,7 @@
               </a>
 
               <a class="col zoom" style="color: #FFDAB9;" href="/piano">
-                <div class="card text-bg-dark">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                   <img src="/static/piano.webp" class="card-img" alt="Piano Image">
                   <div class="card-img-overlay">
                     <h1 class="card-title">Piano</h1>
@@ -62,13 +59,23 @@
               </a>
 
             <a class="col zoom" style="color: #00FA9A;" href="/tone_index">
-                <div class="card text-bg-dark">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
                   <img src="/static/headphones.webp" class="card-img" alt="Headphone Image">
                   <div class="card-img-overlay">
                     <h1 class="card-title">Tone Exercise</h1>
                   </div>
                 </div>
-              </a>
+            </a>
+
+            <a class="col zoom" style="color: #00FA9A;" href="/tuner">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg">
+                  <img src="/static/tuning.jpeg" class="card-img" alt="Tuning Image">
+                  <div class="card-img-overlay">
+                    <h1 class="card-title">Tuner</h1>
+                  </div>
+                </div>
+            </a>
+
             <footer class="footer cols-1 mt-auto py-3">
             <div class="container text-center">
                 <span class="text">©MusePoly by Thon</span>
